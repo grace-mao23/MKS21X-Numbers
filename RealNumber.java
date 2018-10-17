@@ -5,16 +5,8 @@ public class RealNumber{
     value = v;
   }
 
-  /*
-  *Return the sum of this and the other
-  */
   public double add(RealNumber other){
-
-     //other can be ANY RealNumber, including a RationalNumber
-
-     //or other subclasses of RealNumber (that aren't written yet)
-
-     return 0;
+    return this.getValue() + other.getValue();
   }
 
   /*

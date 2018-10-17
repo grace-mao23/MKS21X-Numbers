@@ -2,17 +2,19 @@ public class RationalNumber extends RealNumber
 {
   private int numerator, denominator;
 
-  /**Initialize the RationalNumber with the provided values
-  *  if the denominator is 0, make the fraction 0/1 instead
-  *@param nume the numerator
-  *@param deno the denominator
-  */
   public RationalNumber(int nume, int deno){
     super(0.0);//this value is ignored!
+    if (deno == 0) {
+      numerator = 0;
+      denominator = 1;
+    } else {
+      numerator = nume;
+      denominator = deno;
+    }
   }
 
   public double getValue(){
-    return 0.0;
+    return numerator * 1.0 / denominator;
   }
 
   /**
@@ -49,15 +51,12 @@ public class RationalNumber extends RealNumber
     return "0";
   }
 
-  /**Calculate the GCD of two integers.
-  *@param a the first integers
-  *@param b the second integer
-  *@return the value of the GCD
-  */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    if (a % b == 0) {
+      return Math.min(a,b);
+    } else {
+      return gcd(Math.min(a,b),Math.max(a,b) % Math.min(a,b));
+    }
   }
 
   /**
