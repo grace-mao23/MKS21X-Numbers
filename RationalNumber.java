@@ -11,6 +11,13 @@ public class RationalNumber extends RealNumber
       numerator = nume;
       denominator = deno;
     }
+    if (deno < 0) {
+      numerator *= -1;
+      denominator *= -1;
+    }
+    if (nume != 0) {
+      this.reduce();
+    }
   }
 
   public double getValue(){
@@ -42,14 +49,22 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    if (numerator == 0) {
+      return "0";
+    }
+    if (denominator == 1) {
+      return ""+numerator;
+    }
     return numerator + "/" + denominator;
   }
 
   private static int gcd(int a, int b){
+    int a1 = Math.abs(a);
+    int b1 = Math.abs(b);
     if (b == 0) {
-      return Math.max(a,b);
+      return Math.max(a1,b1);
     } else {
-      return gcd(Math.min(a,b),Math.max(a,b) % Math.min(a,b));
+      return gcd(Math.min(a1,b1),Math.max(a1,b1) % Math.min(a1,b1));
     }
   }
 
