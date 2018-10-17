@@ -35,19 +35,13 @@ public class RationalNumber extends RealNumber
   public RationalNumber reciprocal(){
     return new RationalNumber(this.getDenominator(), this.getNumerator());
   }
-  /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  */
+
   public boolean equals(RationalNumber other){
     this.reduce();
     other.reduce();
     return this.getNumerator() == other.getNumerator() && this.getDenominator() == other.getDenominator();
   }
 
-
-  /**
-  *@return the value expressed as "3/4" or "8/3"
-  */
   public String toString(){
     if (numerator == 0) {
       return "0";
@@ -73,31 +67,31 @@ public class RationalNumber extends RealNumber
     numerator = this.getNumerator() / gcd(firstN, this.getDenominator());
     denominator = this.getDenominator() / gcd(firstN, this.getDenominator());
   }
+
   /******************Operations Return a new RationalNumber!!!!****************/
-  /**
-  *Return a new RationalNumber that is the product of this and the other
-  */
+
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    int numOf = this.getNumerator() * other.getNumerator();
+    int denoOf = this.getDenominator() * other.getDenominator();
+    RationalNumber answer = new RationalNumber(numOf,denoOf);
+    return answer;
   }
 
-  /**
-  *Return a new RationalNumber that is the this divided by the other
-  */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    return multiply(other.reciprocal());
   }
 
-  /**
-  *Return a new RationalNumber that is the sum of this and the other
-  */
   public RationalNumber add(RationalNumber other){
-    return null;
+    int newD = this.getDenominator() * other.getDenominator();
+    return new RationalNumber(this.getNumerator() * other.getDenominator()
+                              + this.getDenominator() * other.getNumerator(),
+                              newD);
   }
-  /**
-  *Return a new RationalNumber that this minus the other
-  */
+
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    int newD = this.getDenominator() * other.getDenominator();
+    return new RationalNumber(this.getNumerator() * other.getDenominator()
+                              - this.getDenominator() * other.getNumerator(),
+                              newD);
   }
 }
