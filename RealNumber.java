@@ -1,26 +1,41 @@
 public class RealNumber{
-
   private double value;
 
-  public RealNumber(double val){
-    value = val;
+  public RealNumber(double v){
+    value = v;
   }
 
+  /*
+  *Return the sum of this and the other
+  */
   public double add(RealNumber other){
-    return other.getValue() + this.val;
 
+     //other can be ANY RealNumber, including a RationalNumber
+
+     //or other subclasses of RealNumber (that aren't written yet)
+
+     return 0;
   }
 
+  /*
+  *Return the product of this and the other
+  */
   public double multiply(RealNumber other){
-    return this.val * other.getValue();
+    return 0;
   }
 
+  /*
+  *Return the this divided by the other
+  */
   public double divide(RealNumber other){
     return 0;
   }
 
+  /*
+  *Return the this minus the other
+  */
   public double subtract(RealNumber other){
-    return 0.0;
+    return 0;
   }
 
 
@@ -29,11 +44,6 @@ public class RealNumber{
   }
 
   public String toString(){
-    return "";
+    return ""+value;
   }
-
-  public int compareR(RealNumber r){
-    return 0;
-  }
-
 }
