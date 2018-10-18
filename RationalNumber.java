@@ -15,7 +15,7 @@ public class RationalNumber extends RealNumber
       numerator *= -1;
       denominator *= -1;
     }
-    if (nume != 0) {
+    if (numerator != 0 && nume != 0) {
       this.reduce();
     }
   }
@@ -37,8 +37,6 @@ public class RationalNumber extends RealNumber
   }
 
   public boolean equals(RationalNumber other){
-    this.reduce();
-    other.reduce();
     return this.getNumerator() == other.getNumerator() && this.getDenominator() == other.getDenominator();
   }
 
